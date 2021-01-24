@@ -1,0 +1,13 @@
+#mainContent {
+    margin: 20px;
+    background: white;
+    padding: 15px;
+}
+#leftPanel {
+    background: lightgrey;
+    max-width: 20%;
+}
+.card {
+    display: inline-block;
+    margin: 10px;
+}
