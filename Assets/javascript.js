@@ -3,7 +3,7 @@ var url = "api.openweathermap.org/data/2.5/";
 var searchBtn = document.getElementById("button-addon2");
 
 // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-
+// api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml&appid={API key}
 
 $(searchBtn).on("click", function () {
     $("#currentInfo").empty();
@@ -12,7 +12,7 @@ $(searchBtn).on("click", function () {
     var userInput = $("#user-input").val();
     $("#user-input").empty();
 
-    apiCall = url + "find?q=" + userInput + "&appid=" + apiKey;
+    apiCall = url + "forecast?q=" + userInput + "&appid=" + apiKey;
     console.log(apiCall);
     var history = [];
     history.push(userInput);
@@ -28,7 +28,7 @@ $(searchBtn).on("click", function () {
             $("#fiveDayWth").empty();
             var repeatCity = $(this).attr("data-city");
             var repeatUrl = url + "forecast?q=" + repeatCity + "&appid=" + apiKey;
-            displayWeather(repeatCity);
+            displayWeather(repeatUrl);
         });
         displayWeather(apiCall);
     };
@@ -44,7 +44,7 @@ function displayWeather(apiCall) {
         var latitude = response.list[0].coord.lat;
         var longitude = response.list[0].coord.lon;
 
-        var date = convertUnixTimestamp(response.list[0].dt);
+        var formattedDate = convertUnixTimestamp(response.list[0].dt);
         locationApiCall = Url + "onecall?lat=" + latitide + "&lon=" + longitude + "&exclude=minutely,hourly&appid=" + apiKey + '&units=imperial';
         var initialResponse = response;
         $.ajax({
