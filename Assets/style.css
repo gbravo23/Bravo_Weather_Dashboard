@@ -1,11 +1,32 @@
+body {
+    background: #0b151ade;
+}
+header {
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+}
 #mainContent {
     margin: 20px;
     background: white;
     padding: 15px;
 }
 #leftPanel {
-    background: lightgrey;
+    background: rgb(224, 224, 224);
     max-width: 20%;
+}
+.btn-group-vertical {
+    width: 100%;  
+    background-color: rgb(255, 255, 255);
+    border: 10px gray;
+    border-radius: 25px;
+}
+#currentInfo {
+    border-style: ridge;
+    border-width: thin;
 }
 .card {
     display: inline-block;
